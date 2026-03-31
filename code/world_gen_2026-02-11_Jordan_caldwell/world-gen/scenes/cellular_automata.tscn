@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhcjycd5vpq17"]
+
+[ext_resource type="Script" uid="uid://c3tosuj51n514" path="res://scenes/CellularAutomata.cs" id="1_e7iff"]
+[ext_resource type="PackedScene" uid="uid://crmtme7nkdlsj" path="res://scenes/cellular_automata_ui.tscn" id="1_t2mcb"]
+[ext_resource type="TileSet" uid="uid://bbtao4gavvshs" path="res://scenes/wall_and_floor_tileset.tres" id="3_shx7t"]
+
+[node name="CellularAutomata" type="Node2D" node_paths=PackedStringArray("WorldTileMap")]
+script = ExtResource("1_e7iff")
+WorldTileMap = NodePath("TileMapLayer")
+
+[node name="CellularAutomataUI" parent="." instance=ExtResource("1_t2mcb")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(1, 0)
+tile_set = ExtResource("3_shx7t")

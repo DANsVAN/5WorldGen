@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://crmtme7nkdlsj"]
+
+[ext_resource type="Script" uid="uid://k0qns6btg2s8" path="res://scenes/CellularAutomataUi.cs" id="1_shihf"]
+
+[node name="CellularAutomataUI" type="CanvasLayer"]
+script = ExtResource("1_shihf")
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+vertical = true
+
+[node name="Hide Generation Controls" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+text = "Hide Generation Controls"
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="Chunk Width Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Chunk Width: "
+
+[node name="Chunk Width Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 400.0
+value = 200.0
+
+[node name="Chunk Height Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Chunk Height:"
+
+[node name="HSlider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 400.0
+value = 200.0
+
+[node name="Num Steps text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Num Steps: "
+
+[node name="Num Steps Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 15.0
+value = 4.0
+
+[node name="Initial Density Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Initial Density Text: "
+
+[node name="Initial density Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.6
+
+[node name="Seed Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Seed (0 For Random)"
+
+[node name="LineEdit" type="LineEdit" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+placeholder_text = "0"
+
+[node name="Regenerate World" type="Button" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Regenerate World"
+
+[node name="Main Menu" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="BoxContainer2/Hide Generation Controls" to="." method="_on_hide_generation_controls_pressed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Chunk Width Slider" to="." method="_on_chunk_width_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Num Steps Slider" to="." method="_on_num_steps_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Initial density Slider" to="." method="_on_initial_density_slider_value_changed"]
+[connection signal="text_changed" from="BoxContainer2/BoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="BoxContainer2/BoxContainer/Regenerate World" to="." method="_on_regenerate_world_pressed"]
+[connection signal="pressed" from="BoxContainer2/Main Menu" to="." method="_on_main_menu_pressed"]

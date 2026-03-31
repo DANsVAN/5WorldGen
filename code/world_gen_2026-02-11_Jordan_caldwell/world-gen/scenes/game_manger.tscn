@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://4r3cn063s233"]
+
+[ext_resource type="Script" uid="uid://bkt6opla1glmg" path="res://scenes/GameManger.cs" id="1_by7kk"]
+[ext_resource type="PackedScene" uid="uid://72m6nh51cuka" path="res://scenes/main_menu.tscn" id="1_p5dq6"]
+[ext_resource type="PackedScene" uid="uid://c7d7rp8ppcbx0" path="res://scenes/MovableCamera.tscn" id="3_aj632"]
+
+[node name="GameManger" type="Node2D"]
+script = ExtResource("1_by7kk")
+ContainerPath = NodePath("MainMenu")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_p5dq6")]
+follow_viewport_enabled = false
+
+[node name="MovableCamera" parent="." instance=ExtResource("3_aj632")]

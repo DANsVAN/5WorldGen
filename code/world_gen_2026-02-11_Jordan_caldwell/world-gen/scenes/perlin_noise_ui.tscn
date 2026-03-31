@@ -1,0 +1,153 @@
+[gd_scene load_steps=2 format=3 uid="uid://bto28h34fqecn"]
+
+[ext_resource type="Script" uid="uid://sch6t6jfpte4" path="res://scripts/PerlinNoiseUi.cs" id="1_2d218"]
+
+[node name="PerlinNoiseUI" type="CanvasLayer"]
+script = ExtResource("1_2d218")
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+offset_right = 218.0
+offset_bottom = 586.0
+vertical = true
+
+[node name="Hide Generation Controls" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+text = "     Hide Generation Controls     "
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="Chunk Width Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Chunk Width: "
+
+[node name="Chunk Width Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 10000.0
+value = 1000.0
+
+[node name="Chunk Height Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Chunk Height: "
+
+[node name="HSlider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 10000.0
+value = 1000.0
+
+[node name="FBM" type="CheckButton" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+button_pressed = true
+text = "USE FBM "
+
+[node name="Noise Octaves" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Noise Octaves: "
+
+[node name="Noise Octaves Text" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 30.0
+value = 8.0
+
+[node name="Seed Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Seed (0 For Random)"
+
+[node name="LineEdit" type="LineEdit" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+placeholder_text = "0"
+
+[node name="Deep Water Threshold Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Deep Water Threshold: "
+
+[node name="Deep Water Threshold Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+value = -0.30000000000000004
+
+[node name="Shallow Water Threshold Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Shallow Water Threshold: "
+
+[node name="Shallow Water Threshold Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+value = -0.09999999999999998
+
+[node name="Beach Threshold Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Beach Threshold:"
+
+[node name="Beach Threshold Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="Grassland Threshold Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Grassland Threshold: "
+
+[node name="Grassland Threshold Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+value = 0.25
+
+[node name="Mountain Threshold Text" type="Label" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Mountain Threshold: "
+
+[node name="Mountain Threshold Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Snowy Peaks ThresholdText" type="Label" parent="BoxContainer2/BoxContainer"]
+visible = false
+layout_mode = 2
+text = "Snowy Peaks Threshold: "
+
+[node name="Snowy Peaks Threshold Slider" type="HSlider" parent="BoxContainer2/BoxContainer"]
+visible = false
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Regenerate World" type="Button" parent="BoxContainer2/BoxContainer"]
+layout_mode = 2
+text = "Regenerate World"
+
+[node name="Main Menu" type="Button" parent="BoxContainer2"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="BoxContainer2/Hide Generation Controls" to="." method="_on_hide_generation_controls_pressed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Chunk Width Slider" to="." method="_on_chunk_width_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="BoxContainer2/BoxContainer/FBM" to="." method="_on_fbm_toggled"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Noise Octaves Text" to="." method="_on_noise_octaves_text_value_changed"]
+[connection signal="text_changed" from="BoxContainer2/BoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Deep Water Threshold Slider" to="." method="_on_deep_water_threshold_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Shallow Water Threshold Slider" to="." method="_on_shallow_water_threshold_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Beach Threshold Slider" to="." method="_on_beach_threshold_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Grassland Threshold Slider" to="." method="_on_grassland_threshold_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Mountain Threshold Slider" to="." method="_on_mountain_threshold_slider_value_changed"]
+[connection signal="value_changed" from="BoxContainer2/BoxContainer/Snowy Peaks Threshold Slider" to="." method="_on_snowy_peaks_threshold_slider_value_changed"]
+[connection signal="pressed" from="BoxContainer2/BoxContainer/Regenerate World" to="." method="_on_regenerate_world_pressed"]
+[connection signal="pressed" from="BoxContainer2/Main Menu" to="." method="_on_main_menu_pressed"]
